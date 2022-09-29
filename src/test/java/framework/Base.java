@@ -18,6 +18,7 @@ public class Base {
     protected RegistrationPage registrationPage;
     protected SearchPage searchPage;
 
+
     @BeforeEach
     public void setUp() {
         driver = createBrowser(CHROME);
@@ -36,5 +37,12 @@ public class Base {
     public void tearDown() throws InterruptedException {
         Thread.sleep(2000);
         driver.quit();
+    }
+
+    public WebDriver getDriver() {
+        if(driver == null){
+            driver = createBrowser(CHROME);
+        }
+        return driver;
     }
 }
