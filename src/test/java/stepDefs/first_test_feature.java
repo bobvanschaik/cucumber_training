@@ -1,3 +1,5 @@
+package stepDefs;
+
 import framework.Base;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
