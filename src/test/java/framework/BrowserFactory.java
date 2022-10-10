@@ -24,16 +24,12 @@ class BrowserFactory {
 
     private static WebDriver createFireFoxBrowser() {
         WebDriverManager.firefoxdriver().setup();
-        return webDriverWithListener(new FirefoxDriver(new FirefoxOptions()));
+        return WebDriverManager.firefoxdriver().create();
+
     }
 
     private static WebDriver createChromeBrowser() {
         WebDriverManager.chromedriver().setup();
-        return webDriverWithListener(new ChromeDriver(new ChromeOptions()));
+        return WebDriverManager.chromedriver().create();
     }
-
-    private static WebDriver webDriverWithListener(WebDriver driver) {
-        return new EventFiringDecorator(new BrowserEventListener(driver)).decorate(driver);
-    }
-
 }
