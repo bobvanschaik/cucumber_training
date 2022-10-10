@@ -1,5 +1,8 @@
 Feature: test
 
+  Background: henk
+    Given I do this
+
   @test
   Scenario: Test this out
     Given I do this
