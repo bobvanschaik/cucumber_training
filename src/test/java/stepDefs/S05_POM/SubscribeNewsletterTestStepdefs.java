@@ -14,17 +14,15 @@ public class SubscribeNewsletterTestStepdefs{
     private WebDriver driver;
     HomePage homePage;
 
-    @When("I subscribe to the news letter with a valid email address")
-    public void iSubscribeToTheNewsLetterWithAValidEmailAddress() {
-        homePage.subscribeToNewsLetter();
-    }
-
     public SubscribeNewsletterTestStepdefs(DriverManager driverManager){
         this.driver = driverManager.driver;
         homePage = new HomePage(driver);
     }
 
-
+    @When("I subscribe to the news letter with a valid email address")
+    public void iSubscribeToTheNewsLetterWithAValidEmailAddress() {
+        homePage.subscribeToNewsLetter();
+    }
 
     @Then("I should be shown a successfully subscribed confirmation")
     public void iShouldBeShownASuccessfullySubscribedConfirmation() {
