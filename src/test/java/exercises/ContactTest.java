@@ -23,5 +23,4 @@ class ContactTest extends Base {
                 .as("The message that is displayed after submitting is not a success message.")
                 .contains("successfully");
     }
-
 }
