@@ -1,8 +1,10 @@
-Feature: Datatables
+Feature: Data Tables
 
   @S13
-  Scenario: Feel the rhythm
-    Given You are happy and you know it
-    And I'm happy and I know it
-    When I really want to show it
-    Then we're happy and we know it
+  Scenario: Add multiple items to the shopping cart
+    Given I go to the webshop
+    And I open the "All products" page
+    When I add these products to my shopping cart:
+      | Hummingbird printed t-shirt |
+      | Mug The best is yet to come |
+      | Mountain fox cushion        |

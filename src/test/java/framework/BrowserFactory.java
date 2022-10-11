@@ -25,7 +25,6 @@ class BrowserFactory {
     private static WebDriver createFireFoxBrowser() {
         WebDriverManager.firefoxdriver().setup();
         return WebDriverManager.firefoxdriver().create();
-
     }
 
     private static WebDriver createChromeBrowser() {

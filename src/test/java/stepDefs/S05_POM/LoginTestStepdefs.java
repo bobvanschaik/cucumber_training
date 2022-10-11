@@ -19,7 +19,7 @@ public class LoginTestStepdefs{
     LoginPage loginPage;
     MyAccountPage myAccountPage;
 
-    public LoginTestStepdefs(DriverManager driverManager){
+    public  LoginTestStepdefs(DriverManager driverManager){
         this.driver = driverManager.driver;
         homePage = new HomePage(driver);
     }
@@ -49,7 +49,5 @@ public class LoginTestStepdefs{
                 .isEqualTo("Your account");
         driver.quit();
     }
-
-
 }
 

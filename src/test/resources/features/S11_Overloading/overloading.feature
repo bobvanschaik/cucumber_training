@@ -7,7 +7,6 @@ Feature: Step definition overloading
     When I really want to show it
     Then we're happy and we know it
 
-  @S11
   Scenario: Overloading with unmatched arguments
     Given you clap your hands 2 times
     And I clap 2 hands 1 times
