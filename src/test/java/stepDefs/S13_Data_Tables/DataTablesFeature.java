@@ -2,10 +2,13 @@ package stepDefs.S13_Data_Tables;
 
 import framework.Base;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import pages.Products;
+import pages.ShoppingCart;
 import stepDefs.DriverManager;
 
 import java.util.List;
@@ -32,5 +35,21 @@ public class DataTablesFeature {
         for (String s : shoppingItems) {
             product.openProduct(s).addProductToCart().continueShopping().goBack();
         }
+    }
+
+    @Then("I have these products in my shopping cart:")
+    public void iHaveTheseProductsInMyShoppingCart(List<String> shoppingItems) {
+        ShoppingCart shoppingCart = new ShoppingCart(driver).open();
+
+        Products product = new Products(driver);
+        for (String s : shoppingItems) {
+            product.openProduct(s).addProductToCart().continueShopping().goBack();
+        }
+    }
+
+    @Then("I have {int} products in my shopping cart")
+    public void iHaveProductsInMyShoppingCart(int productCount) {
+        ShoppingCart shoppingCart = new ShoppingCart(driver);
+        Assertions.assertThat(shoppingCart.getProductCount()).isEqualTo(productCount);
     }
 }

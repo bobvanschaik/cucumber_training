@@ -8,3 +8,4 @@ Feature: Data Tables
       | Hummingbird printed t-shirt |
       | Mug The best is yet to come |
       | Mountain fox cushion        |
+    Then I have 3 products in my shopping cart
