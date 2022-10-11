@@ -16,6 +16,12 @@ public class Products extends Page {
         return new Products(driver);
     }
 
+    public Products changeQuantity(int quantity) {
+        WaitAction.waitForElement(driver, By.xpath(".//input[@name='qty']")).clear();
+        WaitAction.waitForElement(driver, By.xpath(".//input[@name='qty']")).sendKeys(String.valueOf(quantity));
+        return new Products(driver);
+    }
+
     public Products addProductToCart() {
         WaitAction.waitForElement(driver, By.xpath(".//button[@data-button-action='add-to-cart']")).click();
         return new Products(driver);

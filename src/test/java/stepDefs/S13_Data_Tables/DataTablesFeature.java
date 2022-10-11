@@ -1,6 +1,8 @@
 package stepDefs.S13_Data_Tables;
 
 import framework.Base;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,13 +14,14 @@ import pages.ShoppingCart;
 import stepDefs.DriverManager;
 
 import java.util.List;
+import java.util.Map;
 
 public class DataTablesFeature {
 
     private WebDriver driver;
     HomePage homePage;
 
-    public DataTablesFeature(DriverManager driverManager){
+    public DataTablesFeature(DriverManager driverManager) {
         this.driver = driverManager.driver;
         homePage = new HomePage(driver);
     }
@@ -34,6 +37,18 @@ public class DataTablesFeature {
         Products product = new Products(driver);
         for (String s : shoppingItems) {
             product.openProduct(s).addProductToCart().continueShopping().goBack();
+        }
+    }
+
+    @When("I add this amount of products to my shopping cart:")
+    public void iAddTheseProductsToMyShoppingCartWithAmounts(List<Map<String, String>> shoppingItems) {
+        Products product = new Products(driver);
+        for (Map<String, String> item : shoppingItems) {
+            product.openProduct(String.valueOf(item.get("Product")))
+                    .changeQuantity(Integer.parseInt(item.get("Amount")))
+                    .addProductToCart()
+                    .continueShopping()
+                    .goBack();
         }
     }
 
