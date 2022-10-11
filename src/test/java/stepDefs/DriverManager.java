@@ -10,14 +10,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class DriverManager{
     public static WebDriver driver;
 
-    @Before
-    public static void setupClass(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-    }
-
-    @After
-    public static void terminateClass(){
-        driver.quit();
-    }
+//    @Before
+//    public static void setupClass(){
+//        WebDriverManager.chromedriver().setup();
+//        driver = new ChromeDriver();
+//    }
+//
+//    @After
+//    public static void terminateClass(){
+//        driver.quit();
+//    }
 }

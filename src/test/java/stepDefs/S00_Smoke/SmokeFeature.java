@@ -8,7 +8,7 @@ import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class smokeFeature extends Base {
+public class SmokeFeature extends Base {
 
     private WebDriver driver = getDriver();
 

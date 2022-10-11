@@ -14,4 +14,5 @@ public class OptionalTextFeature {
     public void iWillHaveXMugsInMyBasket(int amount) {
         System.err.println("If only the receipt will show that I purchased " +amount +"mug(s)");
     }
+
 }

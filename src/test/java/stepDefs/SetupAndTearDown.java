@@ -7,12 +7,12 @@ import io.cucumber.java.BeforeAll;
 
 public class SetupAndTearDown {
 
-    @BeforeAll
+    @Before
     public static void setup() {
         System.out.println("Starting");
     }
 
-    @AfterAll
+    @After
     public static void tearDown() {
         System.out.println("Closing");
     }
