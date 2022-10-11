@@ -2,6 +2,11 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage extends Page {
 
@@ -12,6 +17,9 @@ public class HomePage extends Page {
     private final By myAccountLink = By.cssSelector(".account");
     private final By searchBox = By.cssSelector("#search_widget input[name='s']");
     private final By searchButton = By.cssSelector("#search_widget button");
+    private final By subscribeNewsLetterField = By.cssSelector("input[aria-labelledby='block-newsletter-label']");
+    private final By subscribeNewsLetterButton = By.cssSelector("input[value='Subscribe']");
+    private final By NewsLetterSubscriptionAlert = By.cssSelector("p.alert.block_newsletter_alert");;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -42,4 +50,14 @@ public class HomePage extends Page {
         driver.findElement(searchButton).click();
     }
 
+    public void subscribeToNewsLetter() {
+        driver.findElement(subscribeNewsLetterField).sendKeys("testerino@tester.com");
+        driver.findElement(subscribeNewsLetterButton).click();
+    }
+
+    public WebElement getNewsLetterSubscribtionAlert() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(NewsLetterSubscriptionAlert));
+        return driver.findElement(NewsLetterSubscriptionAlert);
+    }
 }
