@@ -1,5 +1,6 @@
 Feature: Data Tables
 
+  @S13
   Scenario: Add multiple items to the shopping cart
     Given I go to the webshop
     And I open the "All products" page
@@ -9,6 +10,7 @@ Feature: Data Tables
       | Mountain fox cushion        |
     Then I have 3 products in my shopping cart
 
+    @S13
   Scenario: Add multiple items to the shopping cart
     Given I go to the webshop
     And I open the "All products" page

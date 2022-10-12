@@ -29,17 +29,17 @@ public class DataTablesFeature extends Base {
     }
 
     @When("I add these products to my shopping cart:")
-    public void iAddTheseProductsToMyShoppingCart(List<String> shoppingItems) {
+    public void iAddTheseProductsToMyShoppingCart(DataTable dataTable) {
         Products product = new Products(driver);
-        for (String s : shoppingItems) {
+        for (String s : dataTable.asList()) {
             product.openProduct(s).addProductToCart().continueShopping().goBack();
         }
     }
 
     @When("I add this amount of products to my shopping cart:")
-    public void iAddTheseProductsToMyShoppingCartWithAmounts(DataTable dt) {
+    public void iAddTheseProductsToMyShoppingCartWithAmounts(DataTable dataTable) {
         Products product = new Products(driver);
-        for (Map<String, String> item : dt.entries()) {
+        for (Map<String, String> item : dataTable.entries()) {
             product.openProduct(String.valueOf(item.get("Product")))
                     .changeQuantity(Integer.parseInt(item.get("Amount")))
                     .addProductToCart()
