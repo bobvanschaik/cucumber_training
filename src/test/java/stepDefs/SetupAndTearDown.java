@@ -1,19 +1,26 @@
 package stepDefs;
 
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SetupAndTearDown {
+    public static WebDriver driver;
 
-    @BeforeAll
-    public static void setup() {
-        System.out.println("Starting");
+    @Before
+    public static void setupClass(){
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
     }
 
-    @AfterAll
-    public static void tearDown() {
-        System.out.println("Closing");
+    @After
+    public static void terminateClass(){
+        driver.quit();
+    }
+
+    public static WebDriver getFinalDriver(){
+        return driver;
     }
 }

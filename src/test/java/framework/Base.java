@@ -3,8 +3,8 @@ package framework;
 import org.openqa.selenium.WebDriver;
 import pages.*;
 
-import static framework.BrowserFactory.Browser.CHROME;
-import static framework.BrowserFactory.createBrowser;
+import static stepDefs.SetupAndTearDown.getFinalDriver;
+import static stepDefs.SetupAndTearDown.setupClass;
 
 public class Base {
 
@@ -17,9 +17,12 @@ public class Base {
     protected SearchPage searchPage;
 
     public WebDriver getDriver() {
-        if(driver == null){
-            driver = createBrowser(CHROME);
+        if (getFinalDriver() != null) {
+            return getFinalDriver();
         }
-        return driver;
+        else{
+            setupClass();
+            return getFinalDriver();
+        }
     }
 }

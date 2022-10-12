@@ -1,5 +1,6 @@
 package pages;
 
+import helpers.WaitAction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +20,8 @@ public class HomePage extends Page {
     private final By searchButton = By.cssSelector("#search_widget button");
     private final By subscribeNewsLetterField = By.cssSelector("input[aria-labelledby='block-newsletter-label']");
     private final By subscribeNewsLetterButton = By.cssSelector("input[value='Subscribe']");
-    private final By NewsLetterSubscriptionAlert = By.cssSelector("p.alert.block_newsletter_alert");;
+    private final By NewsLetterSubscriptionAlert = By.cssSelector("p.alert.block_newsletter_alert");
+    private final By allProducts = By.xpath(".//a[starts-with(@class, 'all-product-link')]");
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -48,6 +50,11 @@ public class HomePage extends Page {
 
     public void clickSearchButton() {
         driver.findElement(searchButton).click();
+    }
+
+    public void clickAllProducts() {
+        WaitAction.waitForElement(driver, allProducts).click();
+//        return new Products(driver);
     }
 
     public void subscribeToNewsLetter() {
