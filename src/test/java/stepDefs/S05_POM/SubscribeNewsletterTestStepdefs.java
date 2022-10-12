@@ -19,12 +19,9 @@ public class SubscribeNewsletterTestStepdefs extends Base {
 
     @When("I subscribe to the news letter with a valid email address")
     public void iSubscribeToTheNewsLetterWithAValidEmailAddress() {
-        homePage.subscribeToNewsLetter();
     }
 
     @Then("I should be shown a successfully subscribed confirmation")
     public void iShouldBeShownASuccessfullySubscribedConfirmation() {
-        assertThat(homePage.getNewsLetterSubscribtionAlert().getText())
-                .isEqualTo("You have successfully subscribed to this newsletter.");
     }
 }

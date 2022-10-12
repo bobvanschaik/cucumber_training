@@ -35,4 +35,3 @@ public class LoginTestStepdefs extends Base {
     public void iShouldBeTakenToMyProfilePage() {
     }
 }
-
