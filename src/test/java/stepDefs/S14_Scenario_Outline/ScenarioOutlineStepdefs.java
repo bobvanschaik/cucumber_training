@@ -1,28 +1,24 @@
 package stepDefs.S14_Scenario_Outline;
 
+import framework.Base;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import pages.SearchPage;
-import stepDefs.DriverManager;
+import stepDefs.SetupAndTearDown;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ScenarioOutlineStepdefs {
-    private WebDriver driver;
-    HomePage homePage;
+public class ScenarioOutlineStepdefs extends Base {
+    private WebDriver driver = getDriver();
     SearchPage searchPage;
-
-    public ScenarioOutlineStepdefs(DriverManager driverManager){
-        this.driver = driverManager.driver;
-        homePage = new HomePage(driver);
-    }
 
     @When("I search a product called {string}")
     public void iSearchAProductCalled(String productName) {
+        HomePage homePage = new HomePage(driver);
         homePage.enterSearchTerm(productName);
         homePage.clickSearchButton();
     }

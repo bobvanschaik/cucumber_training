@@ -19,6 +19,4 @@ public class ShoppingCart extends Page {
         String s = WaitAction.waitForElement(driver, By.xpath(".//span[@class='cart-products-count']")).getText();
         return Integer.parseInt(s.substring(1, s.length()-1));
     }
-
-
 }

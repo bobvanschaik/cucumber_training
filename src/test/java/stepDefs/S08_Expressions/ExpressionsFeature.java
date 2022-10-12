@@ -21,7 +21,7 @@ public class ExpressionsFeature {
         System.err.println("And the valid time is " +time);
     }
 
-    @Given("I login as user (Piet|Klaas|Kees|Henk)$")
+    @Given("^I login as user (Piet|Klaas|Kees|Henk)$")
     public void iLoginAsUserX(String user) {
         System.err.println("I'm loggin in as user " + user);
     }

@@ -2,7 +2,6 @@ package stepDefs.S13_Data_Tables;
 
 import framework.Base;
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,18 +10,15 @@ import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import pages.Products;
 import pages.ShoppingCart;
-import stepDefs.DriverManager;
 
 import java.util.List;
 import java.util.Map;
 
-public class DataTablesFeature {
+public class DataTablesFeature extends Base {
 
-    private WebDriver driver;
-    HomePage homePage;
+    private WebDriver driver = getDriver();
 
-    public DataTablesFeature(DriverManager driverManager) {
-        this.driver = driverManager.driver;
+    public DataTablesFeature() {
         homePage = new HomePage(driver);
     }
 
@@ -41,9 +37,9 @@ public class DataTablesFeature {
     }
 
     @When("I add this amount of products to my shopping cart:")
-    public void iAddTheseProductsToMyShoppingCartWithAmounts(List<Map<String, String>> shoppingItems) {
+    public void iAddTheseProductsToMyShoppingCartWithAmounts(DataTable dt) {
         Products product = new Products(driver);
-        for (Map<String, String> item : shoppingItems) {
+        for (Map<String, String> item : dt.entries()) {
             product.openProduct(String.valueOf(item.get("Product")))
                     .changeQuantity(Integer.parseInt(item.get("Amount")))
                     .addProductToCart()

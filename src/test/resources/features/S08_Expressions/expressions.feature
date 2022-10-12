@@ -1,14 +1,14 @@
 Feature: Regular expressions and Cucumber expressions
 
   @S08
-  Scenario: Explanation Regex
-    Given I look at the clock
-    Then the RE clock will show 11:30 AM
-
-  @S08
   Scenario: Explanation Cucumber Expression
     Given I look at the clock
     Then the CE clock will show 11:30 PM
+
+  @S08
+  Scenario: Explanation Regex
+    Given I look at the clock
+    Then the RE clock will show 12:59 PM
 
   @S08
   Scenario: Limit user options
@@ -22,5 +22,5 @@ Feature: Regular expressions and Cucumber expressions
 
 
   Scenario: S08_02_regular_expression
-    Given I live in Hilversum
-    Then my zipcode is 1222AB
+    Given I live in Utrecht
+    Then my zipcode is 1234AB

@@ -3,19 +3,17 @@ package stepDefs.S05_POM;
 import framework.Base;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.HomePage;
-import stepDefs.DriverManager;
+import stepDefs.SetupAndTearDown;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SubscribeNewsletterTestStepdefs{
-    private WebDriver driver;
+public class SubscribeNewsletterTestStepdefs extends Base {
+    private WebDriver driver = getDriver();
     HomePage homePage;
 
-    public SubscribeNewsletterTestStepdefs(DriverManager driverManager){
-        this.driver = driverManager.driver;
+    public SubscribeNewsletterTestStepdefs(SetupAndTearDown driverManager){
         homePage = new HomePage(driver);
     }
 
